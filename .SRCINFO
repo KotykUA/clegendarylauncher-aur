@@ -17,6 +17,8 @@ pkgbase = clegendarylauncher-bin
 	options = !strip
 	options = !debug
 	source = CLegendaryLauncher-x64.AppImage::https://github.com/WER-CORE/CL-Win-Edition--Update/releases/download/v1.1.3/CLegendaryLauncher-x64.AppImage
+	source = LICENSE
 	sha256sums = c4a47ceaac63435bc95ec35f008b1a51828b1b4760e0ceb107a0b179270a5e0a
+	sha256sums = ff9eb3cd9421cc3eb2fe994b708d322a2a0cd79efff780f2ab5932f839daedde
 
 pkgname = clegendarylauncher-bin

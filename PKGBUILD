@@ -1,4 +1,4 @@
-# Maintainer: aquafish tarasfed2016@gmail.com
+# Maintainer: aquafish <tarasfed2016@gmail.com>
 pkgname=clegendarylauncher-bin
 pkgver=1.1.3
 pkgrel=1
@@ -10,9 +10,12 @@ depends=('glibc' 'gcc-libs' 'zlib' 'icu' 'openssl' 'fontconfig' 'libx11' 'libxcb
 options=('!strip' '!debug')
 
 _appimage='CLegendaryLauncher-x64.AppImage'
-source=("${_appimage}::https://github.com/WER-CORE/CL-Win-Edition--Update/releases/download/v${pkgver}/${_appimage}")
+source=("${_appimage}::https://github.com/WER-CORE/CL-Win-Edition--Update/releases/download/v${pkgver}/${_appimage}" 'LICENSE')
 noextract=("${_appimage}")
-sha256sums=('c4a47ceaac63435bc95ec35f008b1a51828b1b4760e0ceb107a0b179270a5e0a')
+sha256sums=(
+    'c4a47ceaac63435bc95ec35f008b1a51828b1b4760e0ceb107a0b179270a5e0a'
+    'ff9eb3cd9421cc3eb2fe994b708d322a2a0cd79efff780f2ab5932f839daedde'
+)
 
 prepare() {
     cd "${srcdir}"
@@ -54,6 +57,9 @@ LAUNCHER
         "${pkgdir}/usr/share/applications/clegendarylauncher.desktop"
 
     # pixmaps works for PNG icons without guessing the icon dimensions.
-    install -Dm644 "${srcdir}/squashfs-root/CLegendaryLauncher.png" \
+        install -Dm644 "${srcdir}/squashfs-root/CLegendaryLauncher.png" \
         "${pkgdir}/usr/share/pixmaps/clegendarylauncher.png"
+
+    install -Dm644 "${srcdir}/LICENSE" \
+        "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
